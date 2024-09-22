@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Navigator - Signup</title>
+    <link rel="stylesheet" href="{% static 'accounts/styles/signup.css' %}">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h1 class="logo">Create Your Account</h1>
+            <!-- Use Django's form handling -->
+            <form class="signup-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-row">
+                    <div class="input-group">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                    </div>
+
+                    <div class="input-group">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+
+                    <div class="input-group">
+                        {{ form.password1.label_tag }}
+                        {{ form.password1 }}
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    {{ form.skills.label_tag }}
+                    {{ form.skills }}
+                </div>
+
+                <div class="input-group">
+                    {{ form.resume.label_tag }}
+                    {{ form.resume }}
+                </div>
+
+                <button type="submit" class="signup-button">Sign Up</button>
+            </form>
+
+            <!-- Added phrase for redirecting to the sign-in page -->
+            <p class="signin-text">Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
+        </div>
+    </div>
+
+    <script src="{% static 'accounts/scripts/signup.js' %}"></script>
+</body>
+</html>
