@@ -24,6 +24,10 @@ class SignupForm(UserCreationForm):
             profile = Profile(user=user, skills=self.cleaned_data['skills'], resume=self.cleaned_data['resume'])
             profile.save()
         return user
+    
+
+
+    
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     confirm_password = forms.CharField(widget=forms.PasswordInput)
