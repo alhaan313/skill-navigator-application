@@ -48,6 +48,4 @@ def signup_view(request):
 def logout_view(request):
     auth_logout(request)
     return redirect('home') 
-
-def home(request):
-    return render(request, 'accounts/home.html')    
+ 

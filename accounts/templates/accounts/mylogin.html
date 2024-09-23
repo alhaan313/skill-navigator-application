@@ -5,16 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Background gradient animation */
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
-<body>
-    <div class="container mt-5">
-        <h1>Login</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+<body class="min-h-screen flex items-center justify-center">
+
+    <div class="container mx-auto flex justify-center items-center h-screen">
+        <!-- Glassmorphism effect on the form card -->
+        <div class="w-full max-w-sm glass shadow-lg rounded-xl p-8">
+            <h1 class="text-3xl font-bold text-white mb-8 text-center">Login</h1>
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                    <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                        Login
+                    </button>
+                </div>
+            </form>
+            <p class="text-sm text-white mt-6 text-center">Don't have an account? <a href="{% url 'signup' %}" class="text-blue-300 hover:underline">Sign up</a></p>
+        </div>
     </div>
 </body>
 </html>

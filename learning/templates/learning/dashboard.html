@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Programming Languages Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Programming Languages</h3>
+                <ul class="list-group">
+                    {% for language in languages %}
+                        <li class="list-group-item" onclick="showContent('{{ language.id }}')">{{ language.language_name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-9" id="content-area">
+                <h3>Learning Material</h3>
+                <div id="material-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(languageId) {
+            fetch(`/get-material/${languageId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('material-content').innerHTML = data.content;
+                });
+        }
+    </script>
+</body>
+</html>

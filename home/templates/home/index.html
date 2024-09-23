@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Navigator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.hero-section {
+    background: url('https://via.placeholder.com/1600x800') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card {
+    min-width: 100%;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    margin: 0 1rem;
+}
+
+.explore-btn {
+    padding: 1rem 2rem;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1.5rem;
+}
+
+.explore-btn:hover {
+    background: #218838;
+}
+
+.achievements-section {
+    padding: 4rem 2rem;
+    background: #f4f4f4;
+}
+
+.achievements-cards {
+    display: flex;
+    gap: 1rem;
+    overflow-x: scroll;
+}
+
+.achievement-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 250px;
+    flex-shrink: 0;
+}
+
+.trending-section {
+    padding: 4rem 2rem;
+    text-align: left;
+}
+
+.trending-courses {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.course-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.course-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.course-info {
+    padding: 1rem;
+    text-align: left;
+}
+
+.course-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-details {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.course-card:hover .course-details {
+    display: block;
+}
+
+.bestseller {
+    border: 3px solid gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.3rem 0.5rem;
+    background: gold;
+    color: #fff;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    background: #333;
+    color: #fff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Skill Navigator</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#trending">Trending Now</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html" class="signin-btn">Sign In</a></li>
+                <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="carousel">
+            <div class="carousel-card">
+                <h2>Level Up Your Skills</h2>
+                <p>Discover courses that fit your skill set and career goals. Learn from experts and become industry-ready.</p>
+            </div>
+            <div class="carousel-card">
+                <h2>Transform Your Career</h2>
+                <p>See how our courses are helping learners achieve their dream jobs and get promoted faster.</p>
+            </div>
+            <div class="carousel-card">
+                <h2>Join a Community of Learners</h2>
+                <p>Connect with like-minded individuals and share your journey to success.</p>
+            </div>
+        </div>
+        <a href="#courses" class="explore-btn">Explore Courses</a>
+    </section>
+
+    <section id="achievements" class="achievements-section">
+        <h2>See What Others Are Achieving Through Learning</h2>
+        <div class="achievements-carousel">
+            <button class="scroll-btn left-scroll"><i class="fas fa-chevron-left"></i></button>
+            <div class="achievements-cards">
+                <div class="achievement-card"> <!-- Multiple similar cards can be added -->
+                    <img src="https://via.placeholder.com/300x200" alt="Achievement Image">
+                    <p>John Doe: Landed a job as a Data Scientist at a Fortune 500 company after completing our courses.</p>
+                </div>
+                <div class="achievement-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Achievement Image">
+                    <p>Jane Smith: Developed a successful freelance career in web development.</p>
+                </div>
+                <div class="achievement-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Achievement Image">
+                    <p>Mark Johnson: Gained essential project management skills and got promoted.</p>
+                </div>
+            </div>
+            <button class="scroll-btn right-scroll"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section id="trending" class="trending-section">
+        <h2>Trending Now</h2>
+        <div class="trending-courses">
+            <div class="course-card bestseller">
+                <img src="https://via.placeholder.com/300x200" alt="Course Image">
+                <div class="course-info">
+                    <h3>100 Days of Code: The Complete Python Pro Bootcamp</h3>
+                    <span class="badge">Bestseller</span>
+                    <div class="course-details">
+                        <p>Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games, and apps!</p>
+                        <p class="students">1,386,184 students</p>
+                        <p>Created by Angela Yu</p>
+                        <p>Last updated 09/2024</p>
+                        <p>Language: English</p>
+                        <p>Subtitles: English, Arabic [Auto]</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-score">4.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="https://via.placeholder.com/300x200" alt="Course Image">
+                <div class="course-info">
+                    <h3>Web Development Bootcamp</h3>
+                    <div class="course-details">
+                        <p>Learn HTML, CSS, and JavaScript to build stunning websites.</p>
+                        <p class="students">982,352 students</p>
+                        <p>Created by Colt Steele</p>
+                        <p>Last updated 07/2024</p>
+                        <p>Language: English</p>
+                        <p>Subtitles: English, Spanish [Auto]</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-score">4.7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="https://via.placeholder.com/300x200" alt="Course Image">
+                <div class="course-info">
+                    <h3>Machine Learning A-Z</h3>
+                    <div class="course-details">
+                        <p>Understand machine learning concepts with hands-on projects.</p>
+                        <p class="students">655,123 students</p>
+                        <p>Created by Kirill Eremenko</p>
+                        <p>Last updated 08/2024</p>
+                        <p>Language: English</p>
+                        <p>Subtitles: English, French [Auto]</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-score">4.6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>Skill Navigator is dedicated to helping you learn new skills and advance your career. We offer a wide range of courses taught by industry professionals.</p>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>For any inquiries, reach out to us at support@skillnavigator.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skill Navigator. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const courseCards = document.querySelectorAll('.course-card');
+
+    courseCards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.classList.add('hovered');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('hovered');
+        });
+    });
+
+    const leftScroll = document.querySelector('.left-scroll');
+    const rightScroll = document.querySelector('.right-scroll');
+    const achievementsContainer = document.querySelector('.achievements-cards');
+
+    leftScroll.addEventListener('click', () => {
+        achievementsContainer.scrollBy({
+            left: -250,
+            behavior: 'smooth'
+        });
+    });
+
+    rightScroll.addEventListener('click', () => {
+        achievementsContainer.scrollBy({
+            left: 250,
+            behavior: 'smooth'
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

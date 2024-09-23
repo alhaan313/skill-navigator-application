@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        header ul li {
+            float: left;
+            margin-right: 15px;
+        }
+
+        header ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        header ul li a:hover {
+            background-color: #575757;
+        }
+
+        .feedback-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px auto;
+            width: 50%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-container h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Feedback Form -->
+    <div class="feedback-container">
+        <h2>Provide Your Feedback</h2>
+
+        <form id="feedbackForm" action="" method="POST">
+            {% csrf_token %}
+            
+            <!-- Course Selection -->
+            <label for="course">Select Course:</label>
+            <select id="course" name="course">
+                <option value="Python Basics">Python Basics</option>
+                <option value="Advanced Java">Advanced Java</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Data Structures">Data Structures</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Django Framework">Django Framework</option>
+            </select>
+
+            <!-- Feedback Text -->
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Write your feedback here..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Feedback form submission handling (for demonstration, use Django to handle the actual submission)
+            document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const course = document.getElementById('course').value;
+                const feedback = document.getElementById('feedback').value;
+
+                if (course && feedback) {
+                    alert('Feedback submitted for ' + course + ': ' + feedback);
+                    // Here, in Django, handle the form submission and save it to the database
+                    // e.g. Django form.save() 
+                } else {
+                    alert('Please complete all fields before submitting.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

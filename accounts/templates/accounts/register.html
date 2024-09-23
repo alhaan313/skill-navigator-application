@@ -5,16 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Soft background gradient animation */
+        body {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradient 12s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism card with muted tones */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body>
-    <div class="container mt-5">
-        <h1>Register</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md">
+        <!-- Registration form with glassmorphism effect -->
+        <div class="glass p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold text-gray-100 text-center mb-8">Register</h1>
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                    <button type="submit" class="w-full bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-600 transition-all transform hover:scale-105">
+                        Register
+                    </button>
+                </div>
+            </form>
+            <p class="text-gray-200 text-center mt-6 text-sm">Already have an account? <a href="{% url 'login' %}" class="text-indigo-300 hover:underline">Log in</a></p>
+        </div>
     </div>
 </body>
 </html>

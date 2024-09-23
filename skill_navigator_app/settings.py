@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'db_connection',
     'core',
     'accounts',
+    'progress',
+    'feedback',
+    'home',
 ]
 
 MIDDLEWARE = [
