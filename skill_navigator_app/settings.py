@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'progress',
     'feedback',
     'home',
+    'batch_allocation',
 ]
 
 MIDDLEWARE = [

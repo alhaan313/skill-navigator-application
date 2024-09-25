@@ -24,6 +24,7 @@ urlpatterns = [
     # path('', include('db_connection.urls')),
     path('', include('home.urls')),
     path('', include('core.urls')),
+    path('', include('batch_allocation.urls')),
     path('', include('progress.urls')),
     path('', include('feedback.urls')),
     path('accounts/', include('accounts.urls'))

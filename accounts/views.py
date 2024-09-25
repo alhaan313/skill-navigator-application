@@ -42,10 +42,9 @@ def signup_view(request):
     else:
         form = SignupForm()  
 
-    return render(request, 'accounts/signup.html', {'form': form})
+    return render(request, 'accounts/register.html', {'form': form})
 
 
 def logout_view(request):
     auth_logout(request)
     return redirect('home') 
- 

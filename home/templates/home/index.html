@@ -2,306 +2,232 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Navigator</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Global Styles */
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
-    line-height: 1.6;
+        /* Custom CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #292d32;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-vector/gradient-black-background-with-wavy-lines_23-2149151738.jpg?t=st=1727187925~exp=1727191525~hmac=9aecaaf5e3a58c25c23277c673f9c7e4a49d7c627e6688ded6b69be86b2109bd&w=740');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            font-family: 'Oregon LDO Book';
+            /* font-weight: bold; */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        .section-title {
+            
+            font-size: 4.5rem; /* Increased size */
+            /* font-weight: bold; */
+            font-family: 'Oregon LDO Book';
+            margin-bottom: 1.5rem;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 1.5rem; /* Increased size */
+            color: #555;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .card {
+            background-color: #350236;
+            border: none;
+            height: 270px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: #007bff;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .img-fluid {
+            width: 800px; /* Set a fixed width */
+            height: 400px; /* Set a fixed height */
+            object-fit: cover; /* Maintain aspect ratio while filling the dimensions */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    z-index: 100;
+/* Dark Section Backgrounds */
+#features {
+    background: #222222; 
+    color: #e0e0e0; /* Light gray for text */
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+#ai {
+    background: #2c2c2c; /* Darker gray */
+    color: #e0e0e0; /* Light gray for text */
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
+#recommender {
+    background: #1a1a1a; /* Dark gray */
+    color: #e0e0e0; /* Light gray for text */
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
+#progress-report {
+    background: #2c2c2c; /* Darker gray */
+    color: #e0e0e0; /* Light gray for text */
 }
 
-.nav-links a:hover {
-    color: #007bff;
+#batch-allocation {
+    background: #1a1a1a; /* Dark gray */
+    color: #e0e0e0; /* Light gray for text */
 }
 
-.hero-section {
-    background: url('https://via.placeholder.com/1600x800') no-repeat center center/cover;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
+/* Custom Font Styles for Dark Theme */
+.section-title {
+    color: #ffffff; /* White for section titles */
 }
 
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.section-description, .card-title, .card-text {
+    color: #cccccc; /* Lighter gray for text */
 }
 
-.carousel-card {
-    min-width: 100%;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 8px;
-    margin: 0 1rem;
-}
-
-.explore-btn {
-    padding: 1rem 2rem;
-    background: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 1.5rem;
-}
-
-.explore-btn:hover {
-    background: #218838;
-}
-
-.achievements-section {
-    padding: 4rem 2rem;
-    background: #f4f4f4;
-}
-
-.achievements-cards {
-    display: flex;
-    gap: 1rem;
-    overflow-x: scroll;
-}
-
-.achievement-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    min-width: 250px;
-    flex-shrink: 0;
-}
-
-.trending-section {
-    padding: 4rem 2rem;
-    text-align: left;
-}
-
-.trending-courses {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.course-card {
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.course-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.course-info {
-    padding: 1rem;
-    text-align: left;
-}
-
-.course-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.course-details {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-.course-card:hover .course-details {
-    display: block;
-}
-
-.bestseller {
-    border: 3px solid gold;
-    box-shadow: 0 0 10px gold;
-}
-
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 0.3rem 0.5rem;
-    background: gold;
-    color: #fff;
-    font-size: 0.8rem;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-}
-
-footer {
-    padding: 1rem;
-    text-align: center;
-    background: #333;
-    color: #fff;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-}
-
-    </style>
+        /* Adjust images */
+        .section img {
+            max-width: 90%;
+            height: auto;
+        }
+    </style>    
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Skill Navigator</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#trending">Trending Now</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="login.html" class="signin-btn">Sign In</a></li>
-                <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero-section">
-        <div class="carousel">
-            <div class="carousel-card">
-                <h2>Level Up Your Skills</h2>
-                <p>Discover courses that fit your skill set and career goals. Learn from experts and become industry-ready.</p>
-            </div>
-            <div class="carousel-card">
-                <h2>Transform Your Career</h2>
-                <p>See how our courses are helping learners achieve their dream jobs and get promoted faster.</p>
-            </div>
-            <div class="carousel-card">
-                <h2>Join a Community of Learners</h2>
-                <p>Connect with like-minded individuals and share your journey to success.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Skill Navigator</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/accounts/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/course_progress">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/feedback">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ai">AI for Learning</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <a href="#courses" class="explore-btn">Explore Courses</a>
-    </section>
+    </nav>
 
-    <section id="achievements" class="achievements-section">
-        <h2>See What Others Are Achieving Through Learning</h2>
-        <div class="achievements-carousel">
-            <button class="scroll-btn left-scroll"><i class="fas fa-chevron-left"></i></button>
-            <div class="achievements-cards">
-                <div class="achievement-card"> <!-- Multiple similar cards can be added -->
-                    <img src="https://via.placeholder.com/300x200" alt="Achievement Image">
-                    <p>John Doe: Landed a job as a Data Scientist at a Fortune 500 company after completing our courses.</p>
-                </div>
-                <div class="achievement-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Achievement Image">
-                    <p>Jane Smith: Developed a successful freelance career in web development.</p>
-                </div>
-                <div class="achievement-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Achievement Image">
-                    <p>Mark Johnson: Gained essential project management skills and got promoted.</p>
-                </div>
-            </div>
-            <button class="scroll-btn right-scroll"><i class="fas fa-chevron-right"></i></button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Master Your Skills, Shape Your Future</h1>
+            <p>Your personalized learning path to success!</p>
+            <a href="#courses" class="btn btn-light btn-lg">Get Started</a>
         </div>
     </section>
 
-    <section id="trending" class="trending-section">
-        <h2>Trending Now</h2>
-        <div class="trending-courses">
-            <div class="course-card bestseller">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <div class="course-info">
-                    <h3>100 Days of Code: The Complete Python Pro Bootcamp</h3>
-                    <span class="badge">Bestseller</span>
-                    <div class="course-details">
-                        <p>Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games, and apps!</p>
-                        <p class="students">1,386,184 students</p>
-                        <p>Created by Angela Yu</p>
-                        <p>Last updated 09/2024</p>
-                        <p>Language: English</p>
-                        <p>Subtitles: English, Arabic [Auto]</p>
-                        <div class="rating">
-                            <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-score">4.8</span>
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container text-center">
+            <h2 class="mb-4 section-title">Our Features</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="card-icon mb-3">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h5 class="card-title">Interactive Learning</h5>
+                            <p class="card-text">Learn with hands-on exercises and real-world scenarios.</p>
+                            <a href="http://127.0.0.1:8000/batch/" class="btn btn-outline-primary">Batch Allocation</a>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="course-card">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <div class="course-info">
-                    <h3>Web Development Bootcamp</h3>
-                    <div class="course-details">
-                        <p>Learn HTML, CSS, and JavaScript to build stunning websites.</p>
-                        <p class="students">982,352 students</p>
-                        <p>Created by Colt Steele</p>
-                        <p>Last updated 07/2024</p>
-                        <p>Language: English</p>
-                        <p>Subtitles: English, Spanish [Auto]</p>
-                        <div class="rating">
-                            <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-score">4.7</span>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="card-icon mb-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">Track Progress</h5>
+                            <p class="card-text">Monitor course completion with visual progress tracking.</p>
+                            <a href="http://127.0.0.1:8000/course_progress" class="btn btn-outline-primary">Track Progress</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="course-card">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <div class="course-info">
-                    <h3>Machine Learning A-Z</h3>
-                    <div class="course-details">
-                        <p>Understand machine learning concepts with hands-on projects.</p>
-                        <p class="students">655,123 students</p>
-                        <p>Created by Kirill Eremenko</p>
-                        <p>Last updated 08/2024</p>
-                        <p>Language: English</p>
-                        <p>Subtitles: English, French [Auto]</p>
-                        <div class="rating">
-                            <span class="stars">⭐⭐⭐⭐</span>
-                            <span class="rating-score">4.6</span>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="card-icon mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h5 class="card-title">Community Support</h5>
+                            <p class="card-text">Join a community of learners, ask questions, and share feedback.</p>
+                            <a href="http://127.0.0.1:8000/feedback" class="btn btn-outline-primary">Feedback</a>
                         </div>
                     </div>
                 </div>
@@ -309,53 +235,166 @@ footer {
         </div>
     </section>
 
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p>Skill Navigator is dedicated to helping you learn new skills and advance your career. We offer a wide range of courses taught by industry professionals.</p>
-    </section>
+<!-- AI for Learning Section -->
+<section id="ai" class="section">
+    <div class="container text-center">
+        <h2 class="mb-4 section-title">AI-Powered Learning</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2">
+                <img src="https://guptadeepak.com/content/images/size/w2000/2024/06/future-of-website-building-AI-automated.webp" class="img-fluid rounded shadow" alt="AI for Learning">
+            </div>
+            <div class="col-md-6">
+                <div class="card-group flex-column">
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Personalized Recommendations</h5>
+                            <p class="card-text">Get tailored learning paths based on your performance.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Smart Learning Paths</h5>
+                            <p class="card-text">AI analyzes your strengths to optimize your learning journey.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Predictive Analytics</h5>
+                            <p class="card-text">Understand potential learning outcomes with data-driven insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="contact" class="contact-section">
-        <h2>Contact Us</h2>
-        <p>For any inquiries, reach out to us at support@skillnavigator.com</p>
-    </section>
+<!-- Course Recommender Section -->
+<section id="recommender" class="section">
+    <div class="container text-center">
+        <h2 class="mb-4 section-title">Inbuilt Course Recommender</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/02/what-to-check-before-an-online-course-purchase.png" class="img-fluid rounded shadow" alt="Course Recommender">
+            </div>
+            <div class="col-md-6">
+                <div class="card-group flex-column">
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tailored Courses</h5>
+                            <p class="card-text">Receive suggestions that align with your career aspirations.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Skill Level Assessment</h5>
+                            <p class="card-text">Courses are recommended based on your current skills.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dynamic Suggestions</h5>
+                            <p class="card-text">Your learning path evolves as you progress.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2024 Skill Navigator. All rights reserved.</p>
+<!-- Real-Time Progress Report Section -->
+<section id="progress-report" class="section">
+    <div class="container text-center">
+        <h2 class="mb-4 section-title">Real-Time Progress Reports</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2">
+                <img src="https://www.justinmind.com/wp-content/webp-express/webp-images/uploads/2020/01/steps-to-create-inspiring-progress-bars-header.png.webp" class="img-fluid rounded shadow" alt="Progress Report">
+            </div>
+            <div class="col-md-6">
+                <div class="card-group flex-column">
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Instant Analytics</h5>
+                            <p class="card-text">Get real-time insights on your learning activities.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Performance Metrics</h5>
+                            <p class="card-text">Understand your strengths and weaknesses through detailed reports.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Goal Tracking</h5>
+                            <p class="card-text">Set and track your learning goals effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Batch Allocation System Section -->
+<section id="batch-allocation" class="section">
+    <div class="container text-center">
+        <h2 class="mb-4 section-title">Custom Batch Allocation System</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO4E5KZomJ4hhKfXmn4yRWw0cAhF4Hk3hlGQ&s" class="img-fluid rounded shadow" alt="Batch Allocation">
+            </div>
+            <div class="col-md-6">
+                <div class="card-group flex-column">
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Skill-Based Grouping</h5>
+                            <p class="card-text">Students are placed in groups based on their skill levels.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Collaborative Learning</h5>
+                            <p class="card-text">Enhance your learning experience through peer collaboration.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-white mb-3 hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Continuous Feedback</h5>
+                            <p class="card-text">Receive ongoing feedback from instructors and peers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Skill Navigator. All rights reserved.</p>
+        </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdn.rawgit.com/tengbao/vanta/master/dist/vanta.trunk.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const courseCards = document.querySelectorAll('.course-card');
-
-    courseCards.forEach(card => {
-        card.addEventListener('mouseover', () => {
-            card.classList.add('hovered');
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.classList.remove('hovered');
-        });
-    });
-
-    const leftScroll = document.querySelector('.left-scroll');
-    const rightScroll = document.querySelector('.right-scroll');
-    const achievementsContainer = document.querySelector('.achievements-cards');
-
-    leftScroll.addEventListener('click', () => {
-        achievementsContainer.scrollBy({
-            left: -250,
-            behavior: 'smooth'
-        });
-    });
-
-    rightScroll.addEventListener('click', () => {
-        achievementsContainer.scrollBy({
-            left: 250,
-            behavior: 'smooth'
-        });
-    });
-});
-
+        VANTA.TRUNK({
+        // el: "#features",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00
+        })
     </script>
 </body>
 </html>
