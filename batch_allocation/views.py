@@ -16,7 +16,7 @@ def batch_allocation(request):
         else:
             form = BatchForm()
 
-        return render(request, 'batch_allocation/index.html', {'form': form})
+    return render(request, 'batch_allocation/index.html', {'form': form})
 
 
 

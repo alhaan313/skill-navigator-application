@@ -85,12 +85,8 @@ WSGI_APPLICATION = 'skill_navigator_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'skill_app_db',      # Database name
-        'USER': 'root',    # Your MySQL username
-        'PASSWORD': '#Payer1234',  # Your MySQL password
-        'HOST': 'localhost',          # Or your MySQL host
-        'PORT': '3306',               # Default MySQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
