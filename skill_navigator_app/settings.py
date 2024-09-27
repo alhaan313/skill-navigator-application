@@ -83,17 +83,21 @@ WSGI_APPLICATION = 'skill_navigator_app.wsgi.application'
 
 # settings.py
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'skill_app_db',
-        'USER': 'username',          # Use the username you created
-        'PASSWORD': 'password',      # Use the password you created
-        'HOST': 'your_ip_address',   # Use your local machine's IP
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
         'PORT': '3306',
     }
 }
-
 
 
 
