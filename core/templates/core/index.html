@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Cambria', serif;
-            background: linear-gradient(135deg, #f3ec78, #af4261);
-            color: #333;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
+    font-family: 'Times New Roman', serif; /* Change font */
+    font-weight: bold; /* Make font bold */
+    background: linear-gradient(135deg, #f3ec78, #af4261);
+    color: #fff; /* Change body text color to white */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
 
         /* Background design */
         .background-pattern {
@@ -70,14 +74,15 @@
 
         /* Form container */
         .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: transform 0.4s ease;
-        }
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #808080; /* Matte gray */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+}
+
 
         h1 {
             text-align: center;
@@ -94,33 +99,33 @@
         }
 
         .form-group label {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 5px;
-            display: block;
-            transition: color 0.3s;
-        }
+    font-size: 18px; /* Larger font size */
+    color: #ffffff;  /* Pure white text color */
+    margin-bottom: 5px;
+    display: block;
+    transition: color 0.3s;
+}
 
         .form-group:hover input,
-        .form-group:hover textarea,
-        .form-group:hover select {
-            border-color: #4a90e2;
-        }
+.form-group:hover textarea,
+.form-group:hover select {
+    border-color: #c0c0c0; /* Silver border */
+    box-shadow: 0 0 8px 2px rgba(192,192,192, 0.8); /* Silver glowing effect */
+}
 
-        .form-group:hover label {
-            color: #4a90e2;
-        }
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;   /* Increased padding for better readability */
+    font-size: 16px; /* Larger font size */
+    color: #ffffff;  /* Pure white text color */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #333; /* Optional: Darker background to make white text stand out */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            transition: border-color 0.3s ease;
-        }
 
         button {
             background-color: #4a90e2;
